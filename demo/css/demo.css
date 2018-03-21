@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/**
+ * @doc demo样式
+ * @author Heanes
+ * @time 2018-03-21 12:02:05 周三
+ */
+/****************************** 重设全局样式 ******************************/
+html{
+    color:#000;
+    background:#fff;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    word-break:break-all;
+}
+html,body{margin:0;padding:0;}
+/****************************** 页面样式 ******************************/
+
