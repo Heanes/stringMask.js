@@ -7,13 +7,47 @@
     <meta name="author" content="Heanes heanes.com email(heanes@163.com)">
     <meta name="keywords" content="软件,商务,HTML,tutorials,source codes">
     <meta name="description" content="描述">
-    <link rel="stylesheet" type="text/css" href="../demo/css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="../vendor/fonts/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../demo/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="//ui.heanes.com/dist/css/heanesUI.css"/>
     <title>StringMask.js Demo</title>
 </head>
 <body>
 <div class="wrap">
-    <div class="string-mask-demo">111111111</div>
+    <div class="demo-wrap">
+        <div class="string-mask-demo-wrap">
+            <span class="string-mask-demo">15012345678</span>
+        </div>
+        <div class="demo-result-wrap">
+            <p class="demo-result-info">点击确认加载组件</p>
+        </div>
+    </div>
+    <div class="demo-config">
+        <form class="demo-config-form string-mask-config-form" name="demo-config-form">
+            <div class="form-group">
+                <label class="config-label" for="stringMaskText">字符内容：</label>
+                <input type="text" name="stringMaskText" id="stringMaskText" value="15012345678"/>
+            </div>
+            <div class="form-group">
+                <label class="config-label" for="stringMaskStart">起始位置：</label>
+                <input type="text" name="stringMaskStart" id="stringMaskStart" value="3" placeholder="起始位置"/>
+            </div>
+            <div class="form-group">
+                <label class="config-label" for="stringMaskLength">替换长度：</label>
+                <input type="text" name="stringMaskLength" id="stringMaskLength" value="4" placeholder="替换长度"/>
+            </div>
+            <div class="form-group">
+                <label class="config-label" for="stringMaskFromEnd">从头部向尾部计数：</label>
+                <select name="stringMaskFromEnd" id="stringMaskFromEnd">
+                    <option value="false">否</option>
+                    <option value="true">是</option>
+                </select>
+            </div>
+            <div class="form-handle">
+                <button class="btn btn-primary demo-config-confirm-btn">确认</button>
+            </div>
+        </form>
+    </div>
 </div>
 <script type="text/javascript" src="../vendor/js/jquery/2.2.4/jquery.2.2.4.min.js"></script>
 <script type="text/javascript" src="../src/js/stringMask.js"></script>

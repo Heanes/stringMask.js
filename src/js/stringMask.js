@@ -25,6 +25,10 @@
 
     var StringMask = function (element, options) {
         // noinspection JSUnusedGlobalSymbols
+        if(this.status){
+            this.refreshOption(options);
+            return this;
+        }
         this._name = pluginName;
         this.version = 'v1.0.0';
         this._defaults = _default;
@@ -32,7 +36,10 @@
         this.$element = $(element);
         this.$el_ = this.$element.clone(true);  // 保留一份原始dom
 
-        this.options = $.extend(true, {}, this._defaults.setting, options);
+        this.status = {isInited: false};
+
+        this.options = $.extend(true, {}, this._defaults.setting, this.options);
+        this.handleToStandardOption(this.options);
 
         this.options.$clickElement = this.options.$clickElement || this.$element;
 
@@ -66,10 +73,12 @@
             };
 
             this.render();
+            this.status.isInited = true;
             return this;
         },
         destroy: function () {
             this.$element.html(this.$el_.html());
+            this.status.isInited = false;
             return this;
         },
         render: function () {
@@ -94,6 +103,12 @@
 
             return this;
         },
+        handleToStandardOption: function (option) {
+            option.start = parseInt(option.start);
+            option.length = parseInt(option.length);
+            option.fromEnd = (option.fromEnd + '') === 'true';
+            option.clickToToggle = (option.clickToToggle + '') === 'true';
+        },
         getOriginText: function ($element) {
             if(!$element){
                 return '';
@@ -108,6 +123,8 @@
 
         refreshOption: function (options) {
             this.options = $.extend(true, {}, this.options, options);
+            this.handleToStandardOption(this.options);
+
             this.destroy();
             this.init();
         },
@@ -258,15 +275,6 @@
      * @time 2018-03-14 18:57:07 周三
      */
     function stringMask(text, start, length, maskingSymbol, fromEnd) {
-        /**
-         * @doc 字符串复制
-         * @author fanggang
-         * @time 2018-03-14 18:52:15 周三
-         */
-        function strRepeat(target, n) {
-            return (new Array(n + 1)).join(target);
-        }
-
         start = start === undefined ? 4 : start;
         length = length === undefined  ? 4 : length;
         maskingSymbol = maskingSymbol === undefined  ? '*' : maskingSymbol;
@@ -287,14 +295,25 @@
         if(text.length <= (start + length)){
             length = text.length - start;
         }
-        var textNew = text.substr(start, length);
-        var strMasked = text.substr(0, start) + strRepeat(maskingSymbol, textNew.length) + text.substr(start + length, text.length - start - length);
+        var textNew = '', strMasked = '';
         // 如果从尾部截取
         if(fromEnd){
             textNew = text.substr(text.length - start - length, length);
             strMasked = text.substr(0, text.length - start - length) + strRepeat(maskingSymbol, textNew.length) + text.substr(text.length - start, start);
+        }else{
+            textNew = text.substr(start, length);
+            strMasked = text.substr(0, start) + strRepeat(maskingSymbol, textNew.length) + text.substr(start + length, text.length - start - length);
         }
         return strMasked;
+    }
+
+    /**
+     * @doc 字符串复制
+     * @author fanggang
+     * @time 2018-03-14 18:52:15 周三
+     */
+    function strRepeat(target, n) {
+        return (new Array(n + 1)).join(target);
     }
 
     function logError(message) {
