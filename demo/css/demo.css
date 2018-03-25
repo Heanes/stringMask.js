@@ -41,8 +41,12 @@ html *, body * {
 .demo-result-info-wrap .demo-result-info {
   font-size: 14px;
   text-align: center;
-  color: #479579;
+  color: #555;
   margin: 0; }
+  .demo-result-info-wrap .demo-result-info.masked {
+    color: #479579; }
+  .demo-result-info-wrap .demo-result-info.recover {
+    color: #3a79dd; }
 
 /**
  * @doc demo选项设置

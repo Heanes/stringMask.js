@@ -9,17 +9,17 @@
     var pluginName = 'stringMask';
     var _default = {};
     _default.setting = {
-        start: 3,                   // 起始位置
-        length: 4,                  // 替换长度
-        fromEnd: false,             // 从头部向尾部计数
-        maskSymbol: '*',            // 替换字符
+        start:         3,           // 起始位置
+        length:        4,           // 替换长度
+        fromEnd:       false,       // 从头部向尾部计数
+        maskSymbol:    '*',         // 替换字符
         clickToToggle: true,        // 点击切换
         $clickElement: undefined,   // 点击切换的触发元素
-        onClick: undefined,         // 点击事件
-        beforeMasked: undefined,    // 替换之前
-        afterMasked: undefined,     // 当替换之后
+        onClick:       undefined,   // 点击事件
+        beforeMasked:  undefined,   // 替换之前
+        afterMasked:   undefined,   // 当替换之后
         beforeRecover: undefined,   // 还原之前
-        afterRecover: undefined,    // 当还原之后
+        afterRecover:  undefined,   // 当还原之后
         strMaskMethod: undefined    // 自定义替换算法，返回被脱敏后的数据,function(stringOrigin, options)
     };
 
@@ -277,8 +277,8 @@
      * @time 2018-03-14 18:57:07 周三
      */
     function stringMask(text, start, length, maskSymbol, fromEnd) {
-        start = start === undefined ? 4 : start;
-        length = length === undefined  ? 4 : length;
+        start = start === undefined ? 4 : parseInt(start);
+        length = length === undefined  ? 4 : parseInt(length);
         maskSymbol = maskSymbol === undefined  ? '*' : maskSymbol;
         fromEnd = fromEnd || false;
 

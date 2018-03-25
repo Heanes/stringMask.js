@@ -37,10 +37,10 @@ $(function () {
 
     var preConfig = {
         afterMasked:  function () {
-            $demoResultInfo.text('已经脱敏处理');
+            $demoResultInfo.removeClass('recover').addClass('masked').text('已经脱敏处理');
         },
         afterRecover: function () {
-            $demoResultInfo.text('已经恢复原状');
+            $demoResultInfo.removeClass('masked').addClass('recover').text('已经恢复原状');
         }
     };
     $demoConfigConfirmBtn.on('click', function () {
