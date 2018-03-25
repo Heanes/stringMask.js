@@ -37,7 +37,7 @@ html *, body * {
     text-align: center;
     font-size: 24px; }
 
-.demo-result-wrap .demo-result-info {
+.demo-result-info-wrap .demo-result-info {
   font-size: 14px;
   text-align: center;
   color: #479579;
@@ -68,5 +68,7 @@ html *, body * {
     display: inline-block; }
     .demo-config .demo-config-form.string-mask-config-form .form-group {
       text-align: initial; }
+  .demo-config .demo-config-result-wrap {
+    text-align: initial; }
 
 /*# sourceMappingURL=demo.css.map */

@@ -28,27 +28,44 @@ $(function () {
         return o;
     };
 
-    let $stringMaskDemo = $('.string-mask-demo'),
+    var $stringMaskDemo = $('.string-mask-demo'),
         $demoResultInfo = $('.demo-result-info'),
         $stringMaskConfigForm = $('.string-mask-config-form'),
-        $demoConfigConfirmBtn = $('.demo-config-confirm-btn');
-    //$stringMaskDemo.stringMask();
+        $demoConfigConfirmBtn = $('.demo-config-confirm-btn'),
+        $demoConfigResultWrap = $('.demo-config-result-wrap'),
+        $demoConfigResult = $('.demo-config-result');
+
+    var preConfig = {
+        afterMasked:  function () {
+            $demoResultInfo.text('已经脱敏处理');
+        },
+        afterRecover: function () {
+            $demoResultInfo.text('已经恢复原状');
+        }
+    };
     $demoConfigConfirmBtn.on('click', function () {
-        let formDataObj = $stringMaskConfigForm.serializeObject();
-        $stringMaskDemo.text(formDataObj.stringMaskText);
-        let formConfig = {
-            start:   formDataObj.stringMaskStart,   // 起始位置
-            length:  formDataObj.stringMaskLength,  // 替换长度
-            fromEnd: formDataObj.stringMaskFromEnd, // 从头部向尾部计数
-            afterMasked: function () {
-                $demoResultInfo.text('已经脱敏处理');
-            },
-            afterRecover: function () {
-                $demoResultInfo.text('已经恢复原状');
-            }
+        var formDataObj = $stringMaskConfigForm.serializeObject();
+        $stringMaskDemo.text(formDataObj.text);
+        var formConfig = {
+            start:         formDataObj.start,           // 起始位置
+            maskSymbol:    formDataObj.maskSymbol,      // 起始位置
+            length:        formDataObj.length,          // 替换长度
+            fromEnd:       formDataObj.fromEnd,         // 从头部向尾部计数
+            clickToToggle: formDataObj.clickToToggle,   // 点击切换
         };
-        //console.table(formConfig);
-        $stringMaskDemo.stringMask().stringMask('refreshOption', formConfig);
+        var config = $.extend(true, {}, preConfig, formConfig);
+        $demoConfigResult.empty().text(renderObject(formConfig));
+        $demoConfigResultWrap.show();
+        $stringMaskDemo.stringMask(config);
         return false;
     });
+
+    function renderObject(obj) {
+        var objStr = '{\n';
+        for (var key in obj) {
+            objStr += '    ' + key + ': ' + obj[key] + '\n';
+        }
+        objStr += '}';
+        return objStr;
+    }
 });

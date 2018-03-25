@@ -12,7 +12,7 @@
         start: 3,                   // 起始位置
         length: 4,                  // 替换长度
         fromEnd: false,             // 从头部向尾部计数
-        maskingSymbol: '*',         // 替换字符
+        maskSymbol: '*',            // 替换字符
         clickToToggle: true,        // 点击切换
         $clickElement: undefined,   // 点击切换的触发元素
         onClick: undefined,         // 点击事件
@@ -38,7 +38,7 @@
 
         this.status = {isInited: false};
 
-        this.options = $.extend(true, {}, this._defaults.setting, this.options);
+        this.options = $.extend(true, {}, this._defaults.setting, options);
         this.handleToStandardOption(this.options);
 
         this.options.$clickElement = this.options.$clickElement || this.$element;
@@ -91,7 +91,7 @@
             if(typeof options.strMaskMethod === 'function'){
                 stringMasked = options.strMaskMethod(this.data.stringOrigin, options);
             }else{
-                stringMasked = stringMask(this.data.stringOrigin, options.start, options.length, options.maskingSymbol, options.fromEnd);
+                stringMasked = stringMask(this.data.stringOrigin, options.start, options.length, options.maskSymbol, options.fromEnd);
             }
             options.$clickElement.trigger('beforeChange');
             this.setTextToElement(stringMasked);
@@ -108,6 +108,7 @@
             option.length = parseInt(option.length);
             option.fromEnd = (option.fromEnd + '') === 'true';
             option.clickToToggle = (option.clickToToggle + '') === 'true';
+            return this;
         },
         getOriginText: function ($element) {
             if(!$element){
@@ -158,6 +159,7 @@
         },
         onClick: function (options) {
             if(!options.clickToToggle){
+                options.$clickElement.off('click', this.stringMaskElementClickFunc);
                 return false;
             }
             // 为了支持'refreshOption'，重置click事件，必须这样专门定义一个全局方法，来解绑之前绑定的方法，且不影响该元素原来绑定的click事件处理
@@ -274,10 +276,10 @@
      * @author fanggang
      * @time 2018-03-14 18:57:07 周三
      */
-    function stringMask(text, start, length, maskingSymbol, fromEnd) {
+    function stringMask(text, start, length, maskSymbol, fromEnd) {
         start = start === undefined ? 4 : start;
         length = length === undefined  ? 4 : length;
-        maskingSymbol = maskingSymbol === undefined  ? '*' : maskingSymbol;
+        maskSymbol = maskSymbol === undefined  ? '*' : maskSymbol;
         fromEnd = fromEnd || false;
 
         if(null === text || undefined === text || text.length === 0){
@@ -290,7 +292,7 @@
             return text;
         }
         if(text.length <= length){
-            return strRepeat(maskingSymbol, text.length);
+            return strRepeat(maskSymbol, text.length);
         }
         if(text.length <= (start + length)){
             length = text.length - start;
@@ -299,10 +301,10 @@
         // 如果从尾部截取
         if(fromEnd){
             textNew = text.substr(text.length - start - length, length);
-            strMasked = text.substr(0, text.length - start - length) + strRepeat(maskingSymbol, textNew.length) + text.substr(text.length - start, start);
+            strMasked = text.substr(0, text.length - start - length) + strRepeat(maskSymbol, textNew.length) + text.substr(text.length - start, start);
         }else{
             textNew = text.substr(start, length);
-            strMasked = text.substr(0, start) + strRepeat(maskingSymbol, textNew.length) + text.substr(start + length, text.length - start - length);
+            strMasked = text.substr(0, start) + strRepeat(maskSymbol, textNew.length) + text.substr(start + length, text.length - start - length);
         }
         return strMasked;
     }

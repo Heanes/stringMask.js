@@ -45,7 +45,7 @@ html *, body *{
   }
 }
 
-.demo-result-wrap{
+.demo-result-info-wrap{
   .demo-result-info{
     font-size:14px;
     text-align:center;
@@ -89,5 +89,8 @@ html *, body *{
         text-align:initial;
       }
     }
+  }
+  .demo-config-result-wrap{
+    text-align:initial;
   }
 }

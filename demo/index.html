@@ -18,35 +18,50 @@
         <div class="string-mask-demo-wrap">
             <span class="string-mask-demo">15012345678</span>
         </div>
-        <div class="demo-result-wrap">
-            <p class="demo-result-info">点击确认加载组件</p>
+        <div class="demo-result-info-wrap">
+            <p class="demo-result-info">点击确认按钮加载组件</p>
         </div>
     </div>
     <div class="demo-config">
         <form class="demo-config-form string-mask-config-form" name="demo-config-form">
             <div class="form-group">
-                <label class="config-label" for="stringMaskText">字符内容：</label>
-                <input type="text" name="stringMaskText" id="stringMaskText" value="15012345678"/>
+                <label class="config-label" for="text">字符内容：</label>
+                <input type="text" name="text" id="text" value="15012345678"/>
             </div>
             <div class="form-group">
-                <label class="config-label" for="stringMaskStart">起始位置：</label>
-                <input type="text" name="stringMaskStart" id="stringMaskStart" value="3" placeholder="起始位置"/>
+                <label class="config-label" for="maskSymbol">替换字符：</label>
+                <input type="text" name="maskSymbol" id="maskSymbol" value="*" placeholder="替换字符"/>
             </div>
             <div class="form-group">
-                <label class="config-label" for="stringMaskLength">替换长度：</label>
-                <input type="text" name="stringMaskLength" id="stringMaskLength" value="4" placeholder="替换长度"/>
+                <label class="config-label" for="start">起始位置：</label>
+                <input type="text" name="start" id="start" value="3" placeholder="起始位置"/>
             </div>
             <div class="form-group">
-                <label class="config-label" for="stringMaskFromEnd">从头部向尾部计数：</label>
-                <select name="stringMaskFromEnd" id="stringMaskFromEnd">
+                <label class="config-label" for="length">替换长度：</label>
+                <input type="text" name="length" id="length" value="4" placeholder="替换长度"/>
+            </div>
+            <div class="form-group">
+                <label class="config-label" for="fromEnd">从头部向尾部计数：</label>
+                <select name="fromEnd" id="fromEnd">
                     <option value="false">否</option>
                     <option value="true">是</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="config-label" for="clickToToggle">开启点击切换：</label>
+                <select name="clickToToggle" id="clickToToggle">
+                    <option value="true">是</option>
+                    <option value="false">否</option>
                 </select>
             </div>
             <div class="form-handle">
                 <button class="btn btn-primary demo-config-confirm-btn">确认</button>
             </div>
         </form>
+        <div class="demo-config-result-wrap" style="display:none">
+            <h3>参数结果</h3>
+            <pre class="demo-config-result"></pre>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="../vendor/js/jquery/2.2.4/jquery.2.2.4.min.js"></script>
