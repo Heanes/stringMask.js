@@ -31,6 +31,7 @@ html *, body * {
   text-align: center;
   margin-bottom: 10px; }
   .string-mask-demo-wrap .string-mask-demo {
+    display: inline-block;
     padding: 6px 16px;
     border: 1px solid #eee;
     border-radius: 4px;
