@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * @doc demo样式
+ * @author Heanes
+ * @time 2016-11-30 20:26:03 周三
+ */
+/****************************** 重设全局样式 ******************************/
+html{
+    color:#000;
+    background:#fff;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    word-break:break-all;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+html *, body *{
+    box-sizing:inherit;
+}
+
+/****************************** 页面样式 ******************************/
+.wrap{
+    padding:20px;
+}
+
+.demo-wrap{
+    padding:40px;
+}
+
+.string-mask-demo-wrap{
+    text-align:center;
+    margin-bottom:10px;
+
+    .string-mask-demo{
+        display:inline-block;
+        padding:6px 16px;
+        border:1px solid #eee;
+        border-radius:4px;
+        text-align:center;
+        font-size:24px;
+    }
+}
+
+.demo-result-info-wrap{
+    .demo-result-info{
+        font-size:14px;
+        text-align:center;
+        color:#555;
+        margin:0;
+
+        &.masked{
+            color:#479579;
+        }
+        &.recover{
+            color:#3a79dd;
+        }
+    }
+}
+
+/**
+ * @doc demo选项设置
+ * @author Heanes
+ * @time 2018-03-24 22:45:50 周六
+ */
+.demo-config{
+    border:1px solid #eee;
+    border-radius:4px;
+    padding:10px;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+    .demo-config-form{
+
+        .config-label{
+            min-width:140px;
+            text-align:right;
+            padding-right:10px;
+        }
+
+        .form-group{
+            margin:10px 0;
+        }
+        .form-handle{
+            margin:20px 0;
+            text-align:center;
+        }
+
+        &.string-mask-config-form{
+            display:inline-block;
+            .form-group{
+                text-align:initial;
+            }
+        }
+    }
+    .demo-config-result-wrap{
+        text-align:initial;
+    }
+}

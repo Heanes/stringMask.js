@@ -54,7 +54,7 @@
     };
 
     StringMask.V = StringMask.VERSION = version;
-
+    // Tooltip.name = tooltip;
     /**
      * @doc 默认选项
      * @type object

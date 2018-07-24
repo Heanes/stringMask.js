@@ -1,0 +1,28 @@
+{
+    "name":         "stringMask",
+    "version":      "1.0.0",
+    "title":        "stringMask",
+    "description":  "Some sensitive info need to be masked in string, this plugin will help you.",
+    "author":       {
+        "name":  "Heanes",
+        "email": "heanes#163.com",
+        "url":   "https://www.heanes.com/"
+    },
+    "licenses": {
+        "type": "MIT License",
+        "url": "http://opensource.org/licenses/MIT"
+    },
+    "dependencies": {
+        "jquery": ">=1.7"
+    },
+    "keywords":     [
+        "bootstrap.table"
+    ],
+    "homepage":     "https://github.com/heanes/stringMask.js",
+    "demo":         "https://github.com/heanes/stringMask.js",
+    "bugs":         {
+        "url": "https://github.com/heanes/stringMask.js/issues"
+    },
+    "docs":         "https://github.com/heanes/stringMask.js",
+    "download":     "https://github.com/heanes/stringMask.js/archive/master.zip"
+}

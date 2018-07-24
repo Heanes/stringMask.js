@@ -28,14 +28,14 @@ $(function () {
         return o;
     };
 
-    var $stringMaskDemo = $('.string-mask-demo'),
+    let $stringMaskDemo = $('.string-mask-demo'),
         $demoResultInfo = $('.demo-result-info'),
         $stringMaskConfigForm = $('.string-mask-config-form'),
         $demoConfigConfirmBtn = $('.demo-config-confirm-btn'),
         $demoConfigResultWrap = $('.demo-config-result-wrap'),
         $demoConfigResult = $('.demo-config-result');
 
-    var preConfig = {
+    let preConfig = {
         afterMasked:  function () {
             $demoResultInfo.removeClass('recover').addClass('masked').text('已经脱敏处理');
         },
@@ -61,11 +61,6 @@ $(function () {
     });
 
     function renderObject(obj) {
-        var objStr = '{\n';
-        for (var key in obj) {
-            objStr += '    ' + key + ': ' + obj[key] + '\n';
-        }
-        objStr += '}';
-        return objStr;
+        return JSON.stringify(obj, null, 4);
     }
 });
