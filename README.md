@@ -10,7 +10,11 @@ Replace some secret information with specified mask symbol, to protect private d
 
 ## Demo
 demo样式见: [stringMask.js demo](http://cdn.heanes.com/js/stringMask.js/1.0/demo/ "stringMask.js demo")
-![demo截图](https://github.com/Heanes/stringMask.js/blob/master/doc/static/image/stringMask.js_screenshot.png)
+<center>
+<img src="https://github.com/Heanes/stringMask.js/blob/master/doc/static/image/stringMask.js_screenshot.png" width="50%" height="50%" alt="demo截图" />
+demo截图
+</center>
+
 ## Usage 使用说明
 stringMask.js调用很简单，只需普通jQuery插件使用的步骤即可:
 ### 第一步：引入js脚本
