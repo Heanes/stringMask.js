@@ -11,7 +11,7 @@ Replace some secret information with specified mask symbol, to protect private d
 ## Demo
 demo样式见: [stringMask.js demo](http://cdn.heanes.com/js/stringMask.js/1.0/demo/ "stringMask.js demo")
 <center>
-<img src="https://github.com/Heanes/stringMask.js/blob/master/doc/static/image/stringMask.js_screenshot.png" width="50%" height="50%" alt="demo截图" />
+<img src="https://github.com/Heanes/stringMask.js/blob/master/doc/static/image/stringMask.js_screenshot.png?raw=true" width="50%" height="50%" alt="demo截图" />
 demo截图
 </center>
 
