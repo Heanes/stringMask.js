@@ -10,7 +10,7 @@ Replace some secret information with specified mask symbol, to protect private d
 
 ## Demo
 demo样式见: [stringMask.js demo](http://cdn.heanes.com/js/stringMask.js/1.0/demo/ "stringMask.js demo")
-
+![demo截图](https://github.com/Heanes/stringMask.js/blob/master/doc/static/image/stringMask.js_screenshot.png)
 ## Usage 使用说明
 stringMask.js调用很简单，只需普通jQuery插件使用的步骤即可:
 ### 第一步：引入js脚本
@@ -44,3 +44,6 @@ $('#someStr').stringMask({
     strMaskMethod: undefined    // 自定义替换算法，返回被脱敏后的数据,function(stringOrigin, options)
 });
 ```
+## License
+* 本项目的所有代码按照 [MIT License](https://github.com/racaljk/hosts/blob/master/LICENSE) 发布
+![img-source-from-https://github.com/docker/dockercraft](https://github.com/docker/dockercraft/raw/master/docs/img/contribute.png?raw=true)
